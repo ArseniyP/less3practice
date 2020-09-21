@@ -16,7 +16,23 @@ public class Task04 {
         System.out.print("Введите размер массива: ");
         int len = scanner.nextInt();
 
-        // TODO: Пишите код здесь
+        int[] arr = new int[len];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        for(int i = 0 ; i < arr.length - 1 ; i++)
+        {
+            for (int j = i + 1 ; j < arr.length ; j++)
+            {
+                if(arr[i] == arr[j])
+                {
+                    System.out.println("No");
+                    return;
+                }
+            }
+        }
+        System.out.println("Yes");
 
     }
 }

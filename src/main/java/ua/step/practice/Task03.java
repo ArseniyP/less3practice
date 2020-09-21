@@ -14,10 +14,19 @@ public class Task03 {
         System.out.print("Введите размер массива: ");
         int len = scanner.nextInt();
 
-        // TODO: Пишите код здесь
         int[] arr = new int[len];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scanner.nextInt();
         }
+
+        int elem = arr[0];
+        for (int el:arr) {
+            if(el != elem)
+            {
+                System.out.println("No");
+                return;
+            }
+        }
+        System.out.println("Yes");
     }
 }

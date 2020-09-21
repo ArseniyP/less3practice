@@ -3,6 +3,7 @@ package ua.step.practice;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Random;
+import java.util.Arrays;
 
 /**
  * Задание: Заполнить массив на 10 элементов случайными числами
@@ -23,6 +24,26 @@ public class Task05 {
         // Использовать для генерирования элементов массива
         Random rnd = new Random(seed);
 
-        // TODO: Пишите код здесь
+        int [] arr = new int[10];
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = rnd.nextInt(11) - 5;
+        }
+        Arrays.sort(arr);
+
+        int count = 1;
+        for(int i = 0; i < arr.length - 1; i++)
+        {
+            if(arr[i] == arr[i+1]) {
+                count++;
+            }
+            else if(count > 1) {
+                System.out.printf("%d - %d раза\n", arr[i], count);
+                count = 1;
+            }
+        }
+        if(count > 1)
+        {
+            System.out.printf("%d - %d раза\n", arr[arr.length-1], count);
+        }
     }
 }

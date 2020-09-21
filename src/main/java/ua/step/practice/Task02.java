@@ -17,10 +17,24 @@ public class Task02 {
         // Использовать для генерирования элементов массива
         Random rnd = new Random(seed);
 
-        // TODO: Пишите код здесь
-        for (int i = 0; i < 30; i++) {
-            System.out.print(rnd.nextInt(51+70) - 70); // 0..120 - 70 = -70..+50
-            System.out.print(" ");
+        int [] arr = new int[30];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rnd.nextInt(121) - 70;
         }
+
+        int min;
+        int max;
+        min = max = arr[0];
+
+        for (int elem:arr) {
+            if(elem < min)
+                min = elem;
+            if(elem > max)
+                max = elem;
+        }
+
+        System.out.printf("%d %d", min, max);
+
     }
 }
