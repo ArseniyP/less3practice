@@ -28,7 +28,34 @@ public class Task12 {
         int cols = scanner.nextInt();
 
         int[][] marr;
-        // TODO: Пишите код здесь
 
+        marr = new int[rows][];
+        for(int i = 0; i < marr.length; i++)
+            marr[i] = new int[cols];
+
+        for(int i = 0; i < marr.length; i++)
+            for(int j = 0; j < marr[i].length; j++)
+                marr[i][j] = scanner.nextInt();
+
+        int steps;
+        boolean isSim = true;
+        for(int i = 0; i < marr.length; i++){
+            steps = marr[i].length / 2;
+            for(int j = 0; j < steps; j++)
+            {
+                if(marr[i][j] != marr[i][marr[i].length - j - 1])
+                {
+                    isSim = false;
+                    break;
+                }
+            }
+            if(!isSim)
+                break;
+        }
+
+        if(isSim)
+            System.out.println("Yes");
+        else
+            System.out.println("No");
     }
 }

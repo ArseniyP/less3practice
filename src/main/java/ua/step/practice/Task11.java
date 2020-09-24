@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * Задание: Есть массив размером n элементов и заполненный
@@ -38,7 +39,39 @@ public class Task11 {
         int m = scanner.nextInt();
 
         int[] arr;
-        // TODO: Пишите код здесь
 
+        arr = new int[n];
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = rnd.nextInt(101);
+        }
+
+        int len = n / m;
+        int lastLen = n % m;
+        int [][] arr2;
+
+        if(lastLen > 0)
+        {
+            arr2 = new int[len + 1][];
+            arr2[len] = new int[lastLen];
+        }
+        else
+        {
+            arr2 = new int[len][];
+        }
+        for(int i = 0; i < len; i++)
+            arr2[i] = new int[m];
+
+
+        int indxArr = 0;
+        for(int i = 0; i < arr2.length; i++)
+            for(int j = 0; j < arr2[i].length; j++)
+                arr2[i][j] = arr[indxArr++];
+
+        System.out.println("Исходный массив " + Arrays.toString(arr));
+        System.out.println("Результат");
+        for(int i = 0; i < arr2.length; i++)
+            System.out.println(Arrays.toString(arr2[i]));
     }
 }
