@@ -30,7 +30,22 @@ public class Task07 {
         int len = scanner.nextInt();
 
         int[] arr;
-        // TODO: Пишите код здесь
+
+        arr = new int[len];
+
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = rnd.nextInt(11) + 3;
+        }
+
+        int [] nums = new int [14];
+
+        for(int el : arr)
+            nums[el]++;
+
+        for(int i = 0; i < nums.length; i++)
+            if(nums[i] > 0)
+                System.out.printf("%d - %d раза\n", i, nums[i]);
+
 
     }
 }
